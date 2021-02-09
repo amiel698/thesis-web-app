@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class TeacherController extends Controller
 {
     public function getTeachers(){
-        return response()->json(Teacher::get(), 200);
+        return response()->json(Teacher::get());
     }
 }

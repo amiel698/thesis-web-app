@@ -16,8 +16,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::resource('teachers', 'TeacherController');
-Route::resource('teachers/', 'TeacherController');
-Route::resource('teachers', 'TeacherController');
+
 
 
 

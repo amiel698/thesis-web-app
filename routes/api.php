@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('teachers', 'TeacherController');
 Route::get('teachers/{id}', 'TeacherController');
-Route::post('teachers', 'TeacherController@addTeacher');
+Route::post('teachers', 'TeacherController');
 
 
 

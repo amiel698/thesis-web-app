@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Teacher;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 class TeacherController extends Controller
 {
     /**
@@ -13,7 +15,8 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        return response()->json(Teacher::get());
+        $teacher = Teacher::get();
+        return response()->json(['teacher'=>$teacher]);
     }
 
     /**
@@ -84,4 +87,5 @@ class TeacherController extends Controller
         $teacher->delete();
         return response()->json(null);
     }
+
 }

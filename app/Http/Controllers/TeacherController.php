@@ -15,7 +15,7 @@ class TeacherController extends Controller
      */
     public function index()
     {
-        $teacher = Teacher::get('id', 'first_name', 'last_name', 'user_name');
+        $teacher = Teacher::get(['id', 'first_name', 'last_name', 'user_name']);
         return response()->json(['teacher'=>$teacher]);
     }
 

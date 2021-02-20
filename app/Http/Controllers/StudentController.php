@@ -103,13 +103,13 @@ class StudentController extends Controller
                     return response()->json('OK');
                 }
                 else if($student_id == $student->student_id and $password != $student->password){
-                    return response()->json("Wrong Password");
+                    return response()->json('Wrong Password');
                 }
                 else if($student_id != $student->student_id and $password == $student->password){
-                    return response()->json("Wrong Student ID");
+                    return response()->json('Wrong Student ID');
                 }
                 else if($student_id != $student->student_id and $password != $student->password){
-                    return response()->json("Wrong Credentials");
+                    return response()->json('Wrong Credentials');
                 }
             }
         }

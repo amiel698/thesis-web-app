@@ -37,8 +37,15 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        $teacher = Teacher::create($request->all());
-        return response()->json($teacher);
+        // $teacher = Teacher::create($request->all());
+        // return response()->json($teacher);
+
+        $password = Teacher::get('password');
+        $sent_password = Teacher::get($request->password);
+        if($password == $sent_password){
+             $teacher = 'correct password';
+             return response()->json($teacher);
+    }
     }
 
     /**
@@ -49,19 +56,10 @@ class TeacherController extends Controller
      */
     public function show($id)
     {
-        $request = new Request();
-       $password = Teacher::get($id,'password');
-       $sent_password = $request->input('password');
-       if($password == $sent_password){
-            $teacher = 'correct password';
-            return response()->json($teacher);
-       }
 
-
-
+        return response()->json(Teacher::find($id));
 
     }
-
     /**
      * Show the form for editing the specified resource.
      *

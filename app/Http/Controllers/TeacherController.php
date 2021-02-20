@@ -47,9 +47,18 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Request $request, $id)
     {
-        return response()->json(Teacher::find($id));
+       $password = Teacher::get($id,'password');
+       $sent_password = $request->input('password');
+       if($password == $sent_password){
+            $teacher = 'correct password';
+            return response()->json($teacher);
+       }
+
+
+
+
     }
 
     /**

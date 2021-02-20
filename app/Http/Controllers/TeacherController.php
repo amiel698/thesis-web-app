@@ -47,8 +47,9 @@ class TeacherController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Request $request, $id)
+    public function show($id)
     {
+        $request = new Request();
        $password = Teacher::get($id,'password');
        $sent_password = $request->input('password');
        if($password == $sent_password){

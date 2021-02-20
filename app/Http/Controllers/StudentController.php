@@ -17,7 +17,7 @@ class StudentController extends Controller
     public function index()
     {
         $students = Students::get(['first_name', 'last_name', 'student_id']);
-        return response()->json($students);
+        return response()->json(['students'=>$students]);
     }
 
     /**
@@ -50,7 +50,8 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        return response()->json(Students::find($id));
+        $students = Students::find($id);
+        return response()->json(['students'=>$students]);
     }
 
     /**

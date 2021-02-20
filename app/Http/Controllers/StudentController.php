@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Students;
+use App\Teacher;
 use Illuminate\Http\Request;
+use Symfony\Component\VarDumper\Cloner\Stub;
 
 class StudentController extends Controller
 {
@@ -13,7 +16,8 @@ class StudentController extends Controller
      */
     public function index()
     {
-        //
+        $students = Students::get(['first_name', 'last_name', 'student_id']);
+        return response()->json($students);
     }
 
     /**
@@ -34,7 +38,8 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $students = Students::create($request->all());
+        return response()->json($students);
     }
 
     /**
@@ -45,7 +50,7 @@ class StudentController extends Controller
      */
     public function show($id)
     {
-        //
+        return response()->json(Students::find($id));
     }
 
     /**
@@ -56,7 +61,7 @@ class StudentController extends Controller
      */
     public function edit($id)
     {
-        //
+
     }
 
     /**
@@ -66,9 +71,10 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Teacher $students)
     {
-        //
+        $students->update($request->all);
+        return response()->json($students);
     }
 
     /**
@@ -77,8 +83,9 @@ class StudentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request, Students $students)
     {
-        //
+        $students->delete();
+        return response()->json("deleted");
     }
 }

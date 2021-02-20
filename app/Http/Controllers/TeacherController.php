@@ -37,15 +37,8 @@ class TeacherController extends Controller
      */
     public function store(Request $request)
     {
-        // $teacher = Teacher::create($request->all());
-        // return response()->json($teacher);
-
-        $password = Teacher::get('password');
-        $sent_password = Teacher::get($request->password);
-        if($password == $sent_password){
-             $teacher = 'correct password';
-             return response()->json($teacher);
-    }
+        $teacher = Teacher::create($request->all());
+        return response()->json($teacher);
     }
 
     /**
@@ -95,5 +88,6 @@ class TeacherController extends Controller
         $teacher->delete();
         return response()->json(null);
     }
+
 
 }

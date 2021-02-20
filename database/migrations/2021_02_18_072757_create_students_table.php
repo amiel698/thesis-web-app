@@ -15,13 +15,10 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->id();
-            $table->id('score_id');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('student_id')->unique();
-            $table->json('easy_score');
-            $table->json('medium_score');
-            $table->json('hard_score');
+            $table->string('password');
             $table->timestamps();
         });
     }

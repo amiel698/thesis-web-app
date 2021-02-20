@@ -89,4 +89,29 @@ class StudentController extends Controller
         $students->delete();
         return response()->json("deleted");
     }
+
+    public function verifyPassword(Request $request)
+    {
+        $method = $request->method();
+        if($method == 'POST')
+        {
+            $student_id = $request->student_id;
+            $password = $request->password;
+            $students = Students::get();
+            foreach($students as $student){
+                if($student_id == $student->student_id and $password == $student->password){
+                    return response()->json("OK");
+                }
+                else if($student_id == $student->student_id and $password != $student->password){
+                    return response()->json("Wrong Password");
+                }
+                else if($student_id != $student->student_id and $password == $student->password){
+                    return response()->json("Wrong Student ID");
+                }
+                else if($student_id != $student->student_id and $password != $student->password){
+                    return response()->json("Wrong Credentials");
+                }
+            }
+        }
+    }
 }

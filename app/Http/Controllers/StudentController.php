@@ -100,7 +100,8 @@ class StudentController extends Controller
             $students = Students::get();
             foreach($students as $student){
                 if($student_id == $student->student_id and $password == $student->password){
-                    return response()->json('httpStatus');
+
+                    return response()->json(['httpStatus'=>'OK']);
                 }
                 else if($student_id == $student->student_id and $password != $student->password){
                     return response()->json('Wrong Password');

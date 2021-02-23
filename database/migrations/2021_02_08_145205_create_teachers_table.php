@@ -18,7 +18,7 @@ class CreateTeachersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('user_name')->unique();
-            $table->string('password');
+            $table->string('password')->md5();
             $table->timestamps();
         });
     }

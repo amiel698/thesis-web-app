@@ -102,7 +102,7 @@ class StudentController extends Controller
                 if($student_id == $student->student_id and $password == $student->password){
 
                     $response = 'OK';
-                    return response()->json(['httpStatus'=>$response]);
+                    return response($response);
                 }
                 else if($student_id == $student->student_id and $password != $student->password){
                     return response()->json('Wrong Password');

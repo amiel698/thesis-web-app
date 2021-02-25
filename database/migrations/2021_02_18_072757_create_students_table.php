@@ -18,8 +18,9 @@ class CreateStudentsTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->string('student_id')->unique();
-            $table->string('password')->md5();
-            $table->timestamps();
+            $table->string('password');
+
+
         });
     }
 

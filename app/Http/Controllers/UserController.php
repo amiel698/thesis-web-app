@@ -9,8 +9,6 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function registerUser(Request $request){
-        $user = User::create($request->all());
-        $user->save();
-
+        return User::create($request->all());
     }
 }

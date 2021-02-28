@@ -15,5 +15,6 @@ class UserController extends Controller
         $user->user_name = $request->user_name;
         $user->password = $request->password;
         $user->save();
+        return view('home');
     }
 }

@@ -18,8 +18,6 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('first_name');
             $table->string('last_name');
-            $table->tinyInteger('user_type');
-            $table->timestamp('date_created');
             // $table->time('time_created');
             // $table->date('login_date');
             // $table->time('login_time');

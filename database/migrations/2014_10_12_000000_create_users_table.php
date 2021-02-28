@@ -19,12 +19,12 @@ class CreateUsersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->tinyInteger('user_type');
-            $table->date('date_created');
-            $table->time('time_created');
-            $table->date('login_date');
-            $table->time('login_time');
-            $table->date('logout_date');
-            $table->time('logout_time');
+            $table->timestamp('date_created');
+            // $table->time('time_created');
+            // $table->date('login_date');
+            // $table->time('login_time');
+            // $table->date('logout_date');
+            // $table->time('logout_time');
 
         });
     }

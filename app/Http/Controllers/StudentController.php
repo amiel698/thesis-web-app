@@ -39,7 +39,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $students = Students::create($request->all());
-        return response()->json($students);
+        return response()->json(['students'=>$students]);
     }
 
     /**

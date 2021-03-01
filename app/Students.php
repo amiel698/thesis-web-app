@@ -13,6 +13,10 @@ class Students extends Model
         'password'
     ];
 
+    protected $hidden = [
+        'password'
+    ];
+
     // protected $casts = [
     //      'easy_score' => 'array',
     //      'medium_score'=> 'array',

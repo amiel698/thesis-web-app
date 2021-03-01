@@ -9,6 +9,7 @@ use Symfony\Component\VarDumper\Cloner\Stub;
 
 class StudentController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *

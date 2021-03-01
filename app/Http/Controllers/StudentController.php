@@ -9,7 +9,7 @@ use Symfony\Component\VarDumper\Cloner\Stub;
 
 class StudentController extends Controller
 {
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -40,7 +40,7 @@ class StudentController extends Controller
     public function store(Request $request)
     {
         $students = Students::create($request->all());
-        return response()->json(['students'=>$students]);
+        return response()->json($students);
     }
 
     /**

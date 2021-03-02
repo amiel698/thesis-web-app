@@ -15,8 +15,8 @@ class UserController extends Controller
         $user->last_name = $request->last_name;
         $user->user_name = $request->user_name;
         $user->password = $request->password;
-        $user->date_created = Carbon::createFromFormat('m/d/Y');
-        $user->time_created = Carbon::createFromFormat('h:i');
+        $user->date_created = new Carbon();
+        $user->time_created = new Carbon();
         $user->save();
         return view('home');
     }

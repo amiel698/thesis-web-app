@@ -27,6 +27,8 @@ class UserController extends Controller
         $users = User::get();
         foreach($users as $user){
             if($user_name == $user->user_name and $password == $user->password){
+                $user->login_date = new Carbon();
+                $user->login_time = new Carbon();
                 return view('home');
             }
             else{

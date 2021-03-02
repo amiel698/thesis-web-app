@@ -15,7 +15,7 @@ class UserController extends Controller
         $user->last_name = $request->last_name;
         $user->user_name = $request->user_name;
         $user->user_type = 1; //student - 1; teacher - 2
-        $user->password = $request->password;
+        $user->password = md5($request->password);
         $user->date_created = new Carbon();
         $user->time_created = new Carbon();
         $user->save();
@@ -24,7 +24,7 @@ class UserController extends Controller
 
     public function loginUser(Request $request){
         $user_name = $request->user_name;
-        $password = $request->password;
+        $password = md5($request->password);
         $users = User::get();
         foreach($users as $user){
             if($user_name == $user->user_name and $password == $user->password){

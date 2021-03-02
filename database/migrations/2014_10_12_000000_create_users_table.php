@@ -22,6 +22,7 @@ class CreateUsersTable extends Migration
             $table->date('date_created');
             $table->time('time_created');
             $table->dateTime('login')->nullable();
+            $table->tinyInteger('user_type');
             // $table->date('logout_date');
             // $table->time('logout_time');
 

@@ -44,7 +44,7 @@ class UserController extends Controller
         if($method == 'POST')
         {
             $user_name = $request->user_name;
-            $password = $request->password;
+            $password = md5($request->password);
             $users = User::get();
             foreach($users as $user){
                 if($user_name == $user->user_name and $password == $user->password){

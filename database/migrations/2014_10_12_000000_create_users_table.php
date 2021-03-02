@@ -20,6 +20,7 @@ class CreateUsersTable extends Migration
             $table->string('first_name');
             $table->string('last_name');
             $table->date('date_created');
+            $table->time('time_created');
             // $table->date('login_date');
             // $table->time('login_time');
             // $table->date('logout_date');

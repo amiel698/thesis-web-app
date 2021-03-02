@@ -19,8 +19,8 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->string('first_name');
             $table->string('last_name');
-            $table->time('time_created');
-            $table->date('login_date');
+            $table->date('date_created');
+            // $table->date('login_date');
             // $table->time('login_time');
             // $table->date('logout_date');
             // $table->time('logout_time');

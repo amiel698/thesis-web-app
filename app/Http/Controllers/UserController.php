@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 
@@ -14,6 +15,7 @@ class UserController extends Controller
         $user->last_name = $request->last_name;
         $user->user_name = $request->user_name;
         $user->password = $request->password;
+        $user->date_created = Carbon::now();
         $user->save();
         return view('home');
     }

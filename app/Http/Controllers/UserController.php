@@ -20,4 +20,18 @@ class UserController extends Controller
         $user->save();
         return view('home');
     }
+
+    public function loginUser(Request $request){
+        $user_name = $request->user_name;
+        $password = $request->password;
+        $users = User::get();
+        foreach($users as $user){
+            if($user_name == $user->user_name and $password == $user->password){
+                return view('home');
+            }
+            else{
+                return view('welcome');
+            }
+        }
+    }
 }

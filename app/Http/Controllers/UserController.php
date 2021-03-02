@@ -36,4 +36,31 @@ class UserController extends Controller
             }
         }
     }
+
+    public function verifyPassword(Request $request)
+    {
+        $method = $request->method();
+        if($method == 'POST')
+        {
+            $user_name = $request->user_name;
+            $password = $request->password;
+            $users = User::get();
+            foreach($users as $user){
+                if($user_name == $user->user_name and $password == $user->password){
+
+                    $response = 'OK';
+                    return response($response);
+                }
+                else if($user_name == $user->user_name and $password != $user->password){
+                    return response('Wrong Password');
+                }
+                else if($user_name != $user->user_name and $password == $user->password){
+                    return response('Wrong User ID');
+                }
+                else if($user_name != $user->user_name and $password != $user->password){
+                    return response('Wrong Credentials');
+                }
+            }
+        }
+    }
 }

@@ -19,7 +19,7 @@ Route::resource('teachers', 'TeacherController');
 
 Route::resource('students', 'StudentController');
 
-Route::post('students/login', 'StudentController@verifyPassword');
+Route::post('students/login', 'UserController@verifyPassword');
 
 
 

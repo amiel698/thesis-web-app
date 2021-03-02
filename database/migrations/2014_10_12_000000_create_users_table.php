@@ -21,8 +21,8 @@ class CreateUsersTable extends Migration
             $table->string('last_name');
             $table->date('date_created');
             $table->time('time_created');
-            $table->date('login_date')->nullable();
-            $table->time('login_time')->nullable();
+            $table->date('login_date');
+            $table->time('login_time');
             // $table->date('logout_date');
             // $table->time('logout_time');
 

@@ -48,6 +48,8 @@ class UserController extends Controller
             foreach($users as $user){
                 if($user_name == $user->user_name and $password == $user->password){
 
+                    $user->login = new Carbon();
+                    $user->save();
                     $response = 'OK';
                     return response($response);
                 }

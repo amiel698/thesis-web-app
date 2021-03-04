@@ -32,9 +32,6 @@ class UserController extends Controller
                 $user->save();
                 return view('home');
             }
-            else{
-                return view('welcome');
-            }
         }
     }
 

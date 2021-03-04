@@ -35,7 +35,7 @@ class UserController extends Controller
     //     }
     // }
 
-    public function authenticate(Request $request){
+    public function loginUser(Request $request){
         $credentials = $request->only('user_name', 'password');
 
         if(Auth::attempt($credentials)){

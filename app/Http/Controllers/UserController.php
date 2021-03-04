@@ -41,7 +41,7 @@ class UserController extends Controller
         if(Auth::attempt($credentials)){
             $user = User::get('login');
             $user->login = new Carbon();
-            return view('home');
+            return redirect()->view('home');
         }
     }
 

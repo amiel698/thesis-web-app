@@ -22,28 +22,20 @@ class UserController extends Controller
         return view('home');
     }
 
-    // public function loginUser(Request $request){
-    //     $user_name = $request->user_name;
-    //     $password = md5($request->password);
-    //     $users = User::get();
-    //     foreach($users as $user){
-    //         if($user_name == $user->user_name and $password == $user->password){
-    //             $user->login = new Carbon();
-    //             $user->save();
-    //             return view('home');
-    //         }
-    //     }
-    // }
-
     public function loginUser(Request $request){
-        $credentials = $request->only('user_name', 'password');
-
-        if(Auth::attempt($credentials)){
-            $user = User::get('login');
-            $user->login = new Carbon();
-            return redirect()->intended()->view('home');
+        $user_name = $request->user_name;
+        $password = md5($request->password);
+        $users = User::get();
+        foreach($users as $user){
+            if($user_name == $user->user_name and $password == $user->password){
+                $user->login = new Carbon();
+                $user->save();
+                return view('home');
+            }
         }
     }
+
+
 
     public function verifyPassword(Request $request)
     {

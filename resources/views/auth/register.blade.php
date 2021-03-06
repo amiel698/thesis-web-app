@@ -22,7 +22,7 @@
                             <label for="last_name" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
                             <div class="col-md-6">
                                 <input type="text" class="form-control" name="last_name" value="{{ old('last_name') }}">
-                                {{--  <span class="text-danger"> @error('last_name') {{$message}} @enderror</span>  --}}
+                                <span class="text-danger"> @error('last_name') {{$message}} @enderror</span>
                             </div>
                         </div>
 

@@ -39,13 +39,13 @@ class UserController extends Controller
 
 
 
-    // public function login(){
-    //     return view('auth.login');
-    // }
+    public function login(){
+        return view('auth.login');
+    }
 
-    // public function register(){
-    //     return view('auth.register');
-    // }
+    public function register(){
+        return view('auth.register');
+    }
 
 
     public function create(Request $request){

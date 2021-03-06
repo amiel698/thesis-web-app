@@ -14,35 +14,32 @@
                         <div class="form-group row">
                             <label for="first_name" class="col-md-4 col-form-label text-md-right">{{ __('First Name') }}</label>
                             <div class="col-md-6">
-                                <input id="first_name" type="text" class="form-control @error('first_name') is-invalid @enderror" name="first_name" value="{{ old('first_name') }}">
+                                <input type="text" class="form-control" name="first_name" value="{{ old('first_name') }}">
+                                <span class="text-danger"> @error('first_name') {{$message}} @enderror</span>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="last_name" class="col-md-4 col-form-label text-md-right">{{ __('Last Name') }}</label>
                             <div class="col-md-6">
-                                <input id="last_name" type="text" class="form-control @error('last_name') is-invalid @enderror" name="last_name" value="{{ old('last_name') }}">
+                                <input type="text" class="form-control" name="last_name" value="{{ old('last_name') }}">
+                                <span class="text-danger"> @error('last_name') {{$message}} @enderror</span>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="user_name" class="col-md-4 col-form-label text-md-right">{{ __('User Name') }}</label>
                             <div class="col-md-6">
-                                <input id="user_name" type="user_name" class="form-control @error('user_name') is-invalid @enderror" name="user_name" value="{{ old('user_name') }}">
+                                <input type="user_name" class="form-control" name="user_name" value="{{ old('user_name') }}">
+                                <span class="text-danger"> @error('user_name') {{$message}} @enderror</span>
                             </div>
                         </div>
 
                         <div class="form-group row">
                             <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
                             <div class="col-md-6">
-                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password">
-                            </div>
-                        </div>
-
-                        <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Confirm Password') }}</label>
-                            <div class="col-md-6">
-                                <input id="password-confirm" type="password" class="form-control" name="password_confirmation">
+                                <input type="password" class="form-control" name="password">
+                                <span class="text-danger"> @error('password') {{$message}} @enderror</span>
                             </div>
                         </div>
 

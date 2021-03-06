@@ -44,12 +44,12 @@ class UserController extends Controller
         return view('auth.login');
     }
 
-    public function register(){
-        return view('auth.register');
-    }
+    // public function register(){
+    //     return view('auth.register');
+    // }
 
 
-    public function create(Request $request){
+    public function register(Request $request){
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',

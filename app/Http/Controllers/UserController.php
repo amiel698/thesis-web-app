@@ -65,6 +65,7 @@ class UserController extends Controller
         $user->date_created = new Carbon();
         $user->time_created = new Carbon();
         $user->save();
+        return view('home');
     }
 
 

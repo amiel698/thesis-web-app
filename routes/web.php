@@ -27,5 +27,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('login', 'UserController@login')->name('login');
 Route::get('register', 'UserController@register')->name('register');
-Route::post('create', 'UserController@create')->name('register');
+Route::post('create', 'UserController@create')->name('create');
 

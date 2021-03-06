@@ -42,16 +42,19 @@
                             </div>
                         </div>
 
-                        <div class="dropdown">
-                            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              User Type
-                            </button>
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="#">Action</a>
-                              <a class="dropdown-item" href="#">Another action</a>
-                              <a class="dropdown-item" href="#">Something else here</a>
-                            </div>
+
+                        <div class="form-group row">
+                          <label class="col-md-4 col-form-label text-md-right" for="user_type">{{ __('Select User Type') }}</label>
+                          <div class="col-md-6">
+                            <select class="custom-select" id="inputGroupSelect01">
+                            <option selected>Choose...</option>
+                            <option value="1">Student</option>
+                            <option value="2">Teacher</option>
+                            </select>
+                            <span class="text-danger"> @error('user_type') {{$message}} @enderror</span>
                           </div>
+                        </div>
+
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

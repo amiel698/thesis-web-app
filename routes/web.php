@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\URL;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -29,3 +31,4 @@ Route::get('login', 'UserController@login')->name('login');
 Route::post('register', 'UserController@register')->name('register');
 // Route::post('create', 'UserController@create')->name('create');
 
+URL::forceScheme('https');

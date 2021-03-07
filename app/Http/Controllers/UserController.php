@@ -40,9 +40,9 @@ class UserController extends Controller
 
 
 
-    public function login(){
-        return view('auth.login');
-    }
+    // public function login(){
+    //     return view('auth.login');
+    // }
 
     // public function register(){
     //     return view('auth.register');
@@ -66,7 +66,7 @@ class UserController extends Controller
         $user->date_created = new Carbon();
         $user->time_created = new Carbon();
         $user->save();
-        return view('home');
+        return view('welcome');
     }
 
 

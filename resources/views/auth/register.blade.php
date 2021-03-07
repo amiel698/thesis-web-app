@@ -46,7 +46,7 @@
                         <div class="form-group row">
                           <label class="col-md-4 col-form-label text-md-right" for="user_type">{{ __('Select User Type') }}</label>
                           <div class="col-md-6">
-                            <select class="custom-select" id="inputGroupSelect01">
+                            <select name="user_type" class="custom-select" id="inputGroupSelect01">
                             <option selected>Choose...</option>
                             <option value="1">Student</option>
                             <option value="2">Teacher</option>

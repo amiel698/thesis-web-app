@@ -55,7 +55,7 @@ class UserController extends Controller
             'last_name' => 'required',
             'user_name' => 'required|unique:users',
             'password' => 'required|min:5|max:12',
-            'user_type' => 'required'
+            
         ]);
 
         $user = new User();

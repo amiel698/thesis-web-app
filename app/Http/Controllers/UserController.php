@@ -55,7 +55,8 @@ class UserController extends Controller
             'last_name' => 'required',
             'user_name' => 'required|unique:users',
             'password' => 'required|min:5|max:12',
-            
+            'user_type' => 'required',
+
         ]);
 
         $user = new User();
@@ -63,10 +64,11 @@ class UserController extends Controller
         $user->last_name = $request->last_name;
         $user->user_name = $request->user_name;
         $user->password = md5($request->password);
+        $user->user_type = $request->user_type;
         $user->date_created = new Carbon();
         $user->time_created = new Carbon();
         $user->save();
-        return view('welcome');
+        return view('home');
     }
 
 

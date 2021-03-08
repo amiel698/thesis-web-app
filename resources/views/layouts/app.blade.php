@@ -48,10 +48,6 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li>
-                        @guest
-                            <a href="{{ route('login') }}">Login</a>
-                            <a href="{{ route('register') }}">Register</a>
-                        @endguest
                         @auth
                             {{ Auth::user()->first_name }}
                             <a href="{{ route('logout') }}">Logout</a>

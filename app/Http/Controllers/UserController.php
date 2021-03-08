@@ -82,7 +82,23 @@ class UserController extends Controller
             'user_name' => 'required',
             'password' => 'required|min:5|max:12'
         ]);
-        
+
+        $user = User::where('user_name', '=', $request->user_name)->first();
+        if($user){
+            if(md5($request->password, $user->password)){
+                $request->session()->put('LoggedUser',$user->id);
+                $user->login = new Carbon();
+                $user->save();
+                return redirect('home');
+            }
+            else{
+                return back()->with('fail', 'Invalid password');
+            }
+        }
+        else{
+            return back()->with('fail', 'User does not exist');
+        }
+
     }
 
 

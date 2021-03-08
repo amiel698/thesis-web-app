@@ -31,9 +31,6 @@ Route::get('home', 'UserController@home')->name('home');
 
 
 
-Route::get('getuser', function(){
-    $users = User::all();
-    return view('layouts.app', ['users'=>$users]);
-});
+
 
 URL::forceScheme('https');

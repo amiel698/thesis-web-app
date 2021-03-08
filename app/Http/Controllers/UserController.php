@@ -109,53 +109,35 @@ class UserController extends Controller
 
 
 
-    public function verifyPassword(Request $request){
-        $user = User::where('user_name', '=', $request->user_name)->first();
-        if($user){
-            if(Hash::check($request->password, $user->password)){
 
-                $user->login = new Carbon();
-                $user->save();
-                $response = 'OK';
-                return response($response);
+
+
+    public function verifyPassword(Request $request)
+    {
+        $method = $request->method();
+        if($method == 'POST')
+        {
+            $user_name = $request->user_name;
+            $password = Hash::make($request->password);
+            $users = User::get();
+            foreach($users as $user){
+                if($user_name == $user->user_name and $password == $user->password){
+
+                    $user->login = new Carbon();
+                    $user->save();
+                    $response = 'OK';
+                    return response($response);
+                }
+                else if($user_name == $user->user_name and $password != $user->password){
+                    return response('Wrong Password');
+                }
+                else if($user_name != $user->user_name and $password == $user->password){
+                    return response('Wrong User ID');
+                }
+                else if($user_name != $user->user_name and $password != $user->password){
+                    return response('Wrong Credentials');
+                }
             }
-            else{
-                return response()->with('fail', 'Invalid password');
-            }
-        }
-        else{
-            return response()->with('fail', 'User does not exist');
         }
     }
-
-
-
-    // public function verifyPassword(Request $request)
-    // {
-    //     $method = $request->method();
-    //     if($method == 'POST')
-    //     {
-    //         $user_name = $request->user_name;
-    //         $password = md5($request->password);
-    //         $users = User::get();
-    //         foreach($users as $user){
-    //             if($user_name == $user->user_name and $password == $user->password){
-
-    //                 $user->login = new Carbon();
-    //                 $user->save();
-    //                 $response = 'OK';
-    //                 return response($response);
-    //             }
-    //             else if($user_name == $user->user_name and $password != $user->password){
-    //                 return response('Wrong Password');
-    //             }
-    //             else if($user_name != $user->user_name and $password == $user->password){
-    //                 return response('Wrong User ID');
-    //             }
-    //             else if($user_name != $user->user_name and $password != $user->password){
-    //                 return response('Wrong Credentials');
-    //             }
-    //         }
-    //     }
-    // }
 }

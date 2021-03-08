@@ -6,6 +6,7 @@ use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 
 class UserController extends Controller
@@ -63,7 +64,7 @@ class UserController extends Controller
         $user->first_name = $request->first_name;
         $user->last_name = $request->last_name;
         $user->user_name = $request->user_name;
-        $user->password = md5($request->password);
+        $user->password = Hash::make($request->password);
         $user->user_type = $request->user_type;
         $user->date_created = new Carbon();
         $user->time_created = new Carbon();
@@ -85,7 +86,7 @@ class UserController extends Controller
 
         $user = User::where('user_name', '=', $request->user_name)->first();
         if($user){
-            if(md5($request->password, $user->password) == true){
+            if(Hash::check($request->password, $user->password)){
                 $request->session()->put('LoggedUser',$user->id);
                 $user->login = new Carbon();
                 $user->save();

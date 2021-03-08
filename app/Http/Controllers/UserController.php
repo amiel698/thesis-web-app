@@ -138,6 +138,7 @@ class UserController extends Controller
 
 
 
+
     // public function verifyPassword(Request $request)
     // {
     //     $method = $request->method();

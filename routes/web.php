@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\URL;
+use App\User;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,5 +29,11 @@ Route::post('login', 'UserController@login')->name('login');
 Route::post('register', 'UserController@register')->name('register');
 Route::get('home', 'UserController@home')->name('home');
 
+
+
+Route::get('getuser', function(){
+    $users = User::get();
+    return view('layouts.app', ['users'=>$users]);
+});
 
 URL::forceScheme('https');

@@ -48,11 +48,12 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li>
-                            @if(Auth::check())
-                                <a href="#">login</a>
-                            @else
-                                <a href="#">login</a>
-                            @endif
+                            @guest
+                            <a href="#">logout</a>
+                            @endguest
+                            @auth
+                                <a href="#">logout</a>
+                            @endauth
                         </li>
                     </ul>
                 </div>

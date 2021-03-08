@@ -85,7 +85,7 @@ class UserController extends Controller
 
         $user = User::where('user_name', '=', $request->user_name)->first();
         if($user){
-            if(md5($request->password, $user->password)){
+            if(md5($request->password, $user->password) == true){
                 $request->session()->put('LoggedUser',$user->id);
                 $user->login = new Carbon();
                 $user->save();

@@ -45,12 +45,12 @@
                     <ul class="navbar-nav ml-auto">
                         <!-- Authentication Links -->
                             <li class="nav-item dropdown">
+                                @foreach ($users as $user)
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    @foreach ($users as $user)
-                                        {{$user->first_name}}
-                                    @endforeach
+                                        {{ $user->first_name }}
                                     <span class="caret"></span>
                                 </a>
+                                @endforeach
 
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="{{ route('logout') }}"

@@ -26,7 +26,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('login', 'UserController@login')->name('login');
 Route::post('register', 'UserController@register')->name('register');
-Rouste::get('home', 'UserController@home')->name('home');
+Route::get('home', 'UserController@home')->name('home');
 
 
 URL::forceScheme('https');

@@ -67,8 +67,15 @@ class UserController extends Controller
         $user->user_type = $request->user_type;
         $user->date_created = new Carbon();
         $user->time_created = new Carbon();
-        $user->save();
-        return view('home');
+        $query = $user->save();
+
+        if($query){
+            return back()->with('Success', 'You have been registered');
+        }
+        else{
+            return back()->with('Fail', 'Something went wrong');
+        }
+
     }
 
 

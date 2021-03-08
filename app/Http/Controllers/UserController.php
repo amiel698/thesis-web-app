@@ -75,7 +75,14 @@ class UserController extends Controller
         else{
             return back()->with('Fail', 'Something went wrong');
         }
+    }
 
+    public function login(Request $request){
+        $request->validate([
+            'user_name' => 'required',
+            'password' => 'required|min:5|max:12'
+        ]);
+        
     }
 
 

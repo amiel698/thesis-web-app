@@ -48,7 +48,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li>
-                            right side
+                            <a href="logout">Logout</a>
                         </li>
                     </ul>
                 </div>

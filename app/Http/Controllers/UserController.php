@@ -114,6 +114,13 @@ class UserController extends Controller
         return view('home', $data);
     }
 
+    public function logout(){
+        if(session()->has('LoggedUser')){
+            session()->pull('LoggedUser');
+            return redirect('login');
+        }
+    }
+
 
 
 

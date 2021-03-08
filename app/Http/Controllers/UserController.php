@@ -120,11 +120,11 @@ class UserController extends Controller
                 return response($response);
             }
             else{
-                return response()->with('fail', 'Invalid password');
+                return response('Wrong Password');
             }
         }
         else{
-            return response()->with('fail', 'User does not exist');
+            return response('User Does not Exist');
         }
     }
 

@@ -23,12 +23,10 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-// Route::post('register', 'UserController@registerUser');
-
-// Route::post('login', 'UserController@loginUser');
 
 Route::post('login', 'UserController@login')->name('login');
 Route::post('register', 'UserController@register')->name('register');
-// Route::post('create', 'UserController@create')->name('create');
+Rouste::get('home', 'UserController@home')->name('home');
+
 
 URL::forceScheme('https');

@@ -11,6 +11,14 @@
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 
+                        <div class="results">
+                            @if(Session::get('fail'))
+                                <div class="alert alert-danger">
+                                    {{ Session::get('fail') }}
+                                </div>
+                            @endif
+                        </div>
+
                         <div class="form-group row">
                             <label for="user_name" class="col-md-4 col-form-label text-md-right">{{ __('User Name') }}</label>
                             <div class="col-md-6">

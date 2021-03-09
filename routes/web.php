@@ -27,7 +27,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::post('login', 'UserController@login')->name('login');
 Route::post('register', 'UserController@register')->name('register');
-Route::get('home', 'UserController@home')->name('home');
+Route::get('home', 'UserController@home')->middleware('isLogged')->name('home');
 Route::get('logout', 'UserController@logout');
 
 

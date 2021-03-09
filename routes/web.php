@@ -31,9 +31,9 @@ Route::post('check', 'UserController@check')->name('check');
 Route::post('save', 'UserController@savee')->name('save');
 
  Route::group(['middleware' =>['AuthCheck']], function(){
-    Route::get('home', 'UserController@home')->middleware('isLogged')->name('home');
-    Route::get('login', 'UserController@login')->middleware('AlreadyLoggedIn')->name('login');
-    Route::get('register', 'UserController@register')->middleware('AlreadyLoggedIn')->name('register');
+    Route::get('home', 'UserController@home')->name('home');
+    Route::get('login', 'UserController@login')->name('login');
+    Route::get('register', 'UserController@register')->name('register');
  });
 
 

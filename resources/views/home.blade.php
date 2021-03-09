@@ -68,6 +68,7 @@
                                 <td>{{ $user->first_name }}</td>
                                 <td>{{ $user->last_name }}</td>
                               </tr>
+                                @endforeach
                             </tbody>
                           </table>
                     </div>

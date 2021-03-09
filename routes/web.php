@@ -28,7 +28,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::post('login', 'UserController@login')->middleware('AlreadyLoggedIn');
 Route::post('register', 'UserController@register')->middleware('AlreadyLoggedIn');
 Route::get('home', 'UserController@home')->middleware('isLogged');
-Route::get('logout', 'UserController@logout');
+Route::get('logout', 'UserController@logout')->name('logout');
 
 
 

@@ -25,7 +25,6 @@ Auth::routes();
 //GET
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('logout', 'UserController@logout')->name('logout');
-
 Route::get('data', 'UserController@index');
 
 //POST

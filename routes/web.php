@@ -28,7 +28,7 @@ Route::get('logout', 'UserController@logout')->name('logout');
 
 //POST
 Route::post('check', 'UserController@check')->name('check');
-Route::post('save', 'UserController@savee')->name('save');
+Route::post('save', 'UserController@save')->name('save');
 
  Route::group(['middleware' =>['AuthCheck']], function(){
     Route::get('home', 'UserController@home')->name('home');

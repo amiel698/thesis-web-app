@@ -73,7 +73,17 @@
         </nav>
 
 
-        <div class="container">
+
+
+
+        <main class="py-4">
+            @yield('content')
+        </main>
+    </div>
+</body>
+</html>
+
+<div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8">
                     <div class="card">
@@ -92,16 +102,6 @@
                 </div>
             </div>
         </div>
-
-
-        <main class="py-4">
-            @yield('content')
-        </main>
-    </div>
-</body>
-</html>
-
-
 
 
 

@@ -103,13 +103,7 @@ class UserController extends Controller
     }
 
     public function home(){
-
-        if(session()->has('LoggedUser')){
-            $user = User::where('id', '=', session('LoggedUser'))->first();
-            $data = [
-                'LoggedUserInfo' => $user
-            ];
-        }
+        $data = ['LoggedUserInfo' => User::where('id', '=', session('LoggedUser'))->first()];
         return view('home', $data);
     }
 

@@ -38,8 +38,8 @@ class UserController extends Controller
     // }
 
     public function index(){
-        $users = User::all()->where('user_type', 1);
-        return view('home', compact('users'));
+        $users = User::all();
+        return view('home', ['users'=>$users]);
     }
 
 

@@ -38,7 +38,7 @@
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">{{ $LoggedUserInfo['first_name'] }}</a>
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">{{ $LoggedUserInfo['first_name'] }} {{$LoggedUserInfo['last_name']}}</a>
                             <div class="dropdown-menu">
                               <a class="dropdown-item" href="logout">Logout</a>
                             </div>

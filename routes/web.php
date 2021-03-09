@@ -26,10 +26,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('logout', 'UserController@logout')->name('logout');
 
-Route::get('home', function(){
-    $users = User::all()->where('user_type', 1);
-    return view('home', ['users'=>$users]);
-});
+Route::get('data', 'UserController@index');
 
 //POST
 Route::post('check', 'UserController@check')->name('check');

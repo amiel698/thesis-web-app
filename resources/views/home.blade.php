@@ -20,7 +20,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body>
-    <div id="app">
+
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -71,18 +71,18 @@
                 </div>
             </div>
         </nav>
-    </div>
-
+        <br>
+        
     <div class="container">
         <div class="row justify-content-center">
+            <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Student List</div>
                     <div class="card-body">
-
                         You are logged in!
                     </div>
                 </div>
-
+            </div>
         </div>
     </div>
 

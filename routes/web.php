@@ -23,14 +23,20 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-
-Route::post('login', 'UserController@login')->middleware('AlreadyLoggedIn');
-Route::post('register', 'UserController@register')->middleware('AlreadyLoggedIn');
-Route::get('home', 'UserController@home')->middleware('isLogged');
+Route::get('login', 'UserController@login')->middleware('AlreadyLoggedIn')->name('login');
+Route::get('register', 'UserController@register')->middleware('AlreadyLoggedIn')->name('register');
+Route::get('home', 'UserController@home')->middleware('AuthCheck')->name('home');
 Route::get('logout', 'UserController@logout')->name('logout');
 
 
+
+
+Route::post('check', 'UserController@check')->name('check');
+Route::post('save', 'UserController@savee')->name('save');
+
+Route::group(['middleware' =>['AuthCheck']], function(){
+
+});
 
 
 

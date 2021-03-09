@@ -41,16 +41,16 @@ class UserController extends Controller
 
 
 
-    // public function login(){
-    //     return view('auth.login');
-    // }
+    public function login(){
+        return view('auth.login');
+    }
 
-    // public function register(){
-    //     return view('auth.register');
-    // }
+    public function register(){
+        return view('auth.register');
+    }
 
 
-    public function register(Request $request){
+    public function save(Request $request){
         $request->validate([
             'first_name' => 'required',
             'last_name' => 'required',
@@ -78,7 +78,7 @@ class UserController extends Controller
         }
     }
 
-    public function login(Request $request){
+    public function check(Request $request){
         $request->validate([
             'user_name' => 'required',
             'password' => 'required|min:5|max:12'

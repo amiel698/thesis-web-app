@@ -28,7 +28,7 @@ Route::get('logout', 'UserController@logout')->name('logout');
 
 Route::get('home', function(){
     $users = User::all()->where('user_type', 1);
-    return view('home')->with('users',$users);
+    return view('home', ['users'=>$users]);
 });
 
 //POST

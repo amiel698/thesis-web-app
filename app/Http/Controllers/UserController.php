@@ -110,7 +110,6 @@ class UserController extends Controller
                 'LoggedUserInfo' => $user
             ];
         }
-
         return view('home', $data);
     }
 

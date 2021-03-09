@@ -64,9 +64,9 @@
                             </thead>
                             <tbody>
                               <tr>
-                             @foreach ($users as $user)
-                                <td>{{$user -> first_name}}</td>
-                                <td>{{$user -> last_name}}</td>
+                             @foreach ($users as $value)
+                                <td>{{$value >first_name}}</td>
+                                <td>{{$value->last_name}}</td>
                              @endforeach
                               </tr>
 

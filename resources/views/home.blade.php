@@ -74,7 +74,7 @@
     </div>
 
     <div class="container">
-            <div class="col-md-8">
+        <div class="row justify-content-center">
                 <div class="card">
                     <div class="card-header">Student List</div>
                     <div class="card-body">
@@ -82,7 +82,8 @@
                         You are logged in!
                     </div>
                 </div>
-            </div>
+
+        </div>
     </div>
 
 

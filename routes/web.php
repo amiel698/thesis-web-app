@@ -25,8 +25,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 
-Route::post('login', 'UserController@login')->name('login');
-Route::post('register', 'UserController@register')->name('register');
+Route::post('login', 'UserController@login')->middleware('AlreadyLoggedIn')->name('login');
+Route::post('register', 'UserController@register')->middleware('AlreadyLoggedIn')->name('register');
 Route::get('home', 'UserController@home')->middleware('isLogged')->name('home');
 Route::get('logout', 'UserController@logout');
 

@@ -26,6 +26,11 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('logout', 'UserController@logout')->name('logout');
 
+Route::get('home', function(){
+    $users = User::all()->where('user_type', 1);
+    return view('home')->with('users',$users);
+});
+
 //POST
 Route::post('check', 'UserController@check')->name('check');
 Route::post('save', 'UserController@save')->name('save');

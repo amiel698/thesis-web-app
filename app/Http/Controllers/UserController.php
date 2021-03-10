@@ -38,6 +38,7 @@ class UserController extends Controller
     // }
 
     public function index(){
+        
         $users = User::get();
         return view('home', ['users'=>$users]);
     }

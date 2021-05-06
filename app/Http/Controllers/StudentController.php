@@ -187,7 +187,7 @@ class StudentController extends Controller
     public function charts_test($id){
 
         $score = StudentRecords::whereStudentId($id)->orderBy('created_at','ASC')->groupBy('score','created_at','difficulty')->having('difficulty', '=', 'easy')->pluck('score');
-        $months = StudentRecords::whereStudentId($id)->orderBy('created_at','ASC')->groupBy('score','created_at','difficulty')->having('difficulty', '=', 'easy')->get(DB::raw('to_char(created_at, \'YYYY-MON\') as month'))->pluck('month');
+        $months = StudentRecords::whereStudentId($id)->orderBy('created_at','ASC')->groupBy('score','created_at','difficulty')->having('difficulty', '=', 'easy')->get(DB::raw('to_char(created_at, \'MON-DDYYYY\') as month'))->pluck('month');
 
         $score_medium = StudentRecords::whereStudentId($id)->orderBy('created_at','ASC')->groupBy('score','created_at','difficulty')->having('difficulty', '=', 'medium')->pluck('score');
         $months_medium = StudentRecords::whereStudentId($id)->orderBy('created_at','ASC')->groupBy('score','created_at','difficulty')->having('difficulty', '=', 'medium')->get(DB::raw('to_char(created_at, \'YYYY-MON\') as month'))->pluck('month');

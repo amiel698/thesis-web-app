@@ -186,8 +186,9 @@ class StudentController extends Controller
 
     public function charts_test($id){
 
-        $score = StudentRecords::whereStudentId($id)->orderBy('created_at', 'DESC')->groupBy('score','created_at','difficulty')->having('difficulty', '=', 'easy')->pluck('score','created_at');
-        dd($score);
+        $score = StudentRecords::whereStudentId($id)->orderBy('created_at', 'DESC')->groupBy('score','created_at','difficulty')->having('difficulty', '=', 'easy')->pluck('score');
+        $months = StudentRecords::whereStudentId($id)->orderBy('created_at', 'DESC')->groupBy('score','created_at','difficulty')->having('difficulty', '=', 'easy')->get(DB::raw('to_char(created_at, \'YYYY-MON\') as month'))->pluck('month');
+        dd($months);
         $student = User::findOrFail($id);
         // $data2 = DB::table('student_records')->select(DB::raw('to_char(created_at, \'YYYY-MM\') as month'))->where('student_id', $id)->groupBy('difficulty','score', 'month')->having('difficulty', '=', 'easy')->pluck('score','month');
         $datas = StudentRecords::whereStudentId($id)->orderBy('month','ASC')->groupBy('difficulty','score','month' )->having('difficulty', '=', 'easy')->get(DB::raw('to_char(created_at, \'YYYY-MON\') as month'))->pluck('score', 'month');

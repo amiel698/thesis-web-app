@@ -4,6 +4,10 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
+
+
+use App\User;
+
 class CreateUsersTable extends Migration
 {
     /**
@@ -15,19 +19,26 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->id();
-            $table->string('user_name')->unique();
-            $table->string('password');
             $table->string('first_name');
             $table->string('last_name');
-            $table->date('date_created');
-            $table->time('time_created');
-            $table->dateTime('login')->nullable();
-            $table->tinyInteger('user_type');
-            // $table->date('logout_date');
-            // $table->time('logout_time');
-
+            $table->string('email')->unique();
+            $table->timestamp('email_verified_at')->nullable();
+            $table->string('password');
+            $table->tinyInteger('user_type')->default(1);
+            $table->rememberToken();
+            $table->timestamps();
         });
-    }
+        User::create([
+            'first_name'=>'John',
+            'last_name'=>'Doe',
+            'email'=>'a@g.com',
+            'password'=>bcrypt('admin'),
+            'user_type'=>0
+        ]);
+
+        }
+
+
 
     /**
      * Reverse the migrations.

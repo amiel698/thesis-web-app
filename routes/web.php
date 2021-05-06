@@ -1,10 +1,8 @@
 <?php
 
+use App\Http\Controllers\ChartController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\URL;
-use App\User;
-
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -16,27 +14,40 @@ use App\User;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', 'AuthController@login')->name('login');
+Route::get('register', 'AuthController@register')->name('register');
+Route::post('store', 'AuthController@store')->name('store');
+Route::post('authentication', 'AuthController@authentication')->name('authentication');
+Route::post('authentication-api', 'AuthController@api_authentication')->name('authentication_api');
+Route::post('authentication-api-logout', 'AuthController@authentication_api_logout')->name('authentication_api_logout');
+Route::get('chart/{id}','StudentController@charts_test')->name('chart');
+
+
+
+
+Route::middleware('auth')->group(function(){
+	Route::post('logout', 'AuthController@logout')->name('logout');
+
+	Route::get('home', 'HomeController@index')->name('home');
+
+	Route::resource('words', 'WordsController');
+    Route::get('words/delete/{id}', 'WordsController@remove')->name('words.delete');
+
+	Route::get('teacher/remove/{id}', 'TeacherController@delete')->name('teacher.remove.student');
+	Route::get('teacher/assign-student', 'TeacherController@create_student')->name('teacher.create_student');
+	Route::post('teacher/assign-student', 'TeacherController@store_student')->name('teacher.store_student');
+    Route::post('teacher/multiple-delete', 'TeacherController@multiple_delete')->name('teacher.multi_delete');
+	Route::resource('teacher', 'TeacherController');
+    Route::get('student/score/show/{id}', 'StudentController@show')->name('student.show.score');
+	Route::get('student/score/{id}', 'StudentController@api_scores')->name('student.scores');
+	Route::resource('student', 'StudentController');
 });
 
-Auth::routes();
 
-//GET
-Route::get('/home', 'HomeController@index')->name('home');
-Route::get('logout', 'UserController@logout')->name('logout');
-Route::get('data', 'UserController@index')->name('data');
-
-//POST
-Route::post('check', 'UserController@check')->name('check');
-Route::post('save', 'UserController@save')->name('save');
-
- Route::group(['middleware' =>['AuthCheck']], function(){
-    Route::get('home', 'UserController@home')->name('home');
-    Route::get('login', 'UserController@login')->name('login');
-    Route::get('register', 'UserController@register')->name('register');
- });
-
-
+Route::get('easy', 'ChallengeController@easy')->name('challenge_easy');
+Route::get('medium', 'ChallengeController@medium')->name('challenge_medium');
+Route::get('hard', 'ChallengeController@hard')->name('challenge_hard');
+Route::get('get-result', 'ChallengeController@getResult')->name('challenge_get_result');
+Route::post('get-result', 'ChallengeController@getResult')->name('challenge_get_result_post');
 
 URL::forceScheme('https');

@@ -1,6 +1,5 @@
 <?php
 
-use App\Http\Controllers\TeacherController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -15,17 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::resource('teachers', 'TeacherController');
+/*Route::middleware('auth:api')->get('/user', function (Request $request) {
+    return $request->user();
+});*/
 
-Route::resource('students', 'StudentController');
-
-Route::post('students/login', 'UserController@verifyPassword');
-
-
-
-
-
-
-
-
-
+Route::post('authentication-mobile', 'AuthController@authentication_mobile')->name('authentication-mobile');

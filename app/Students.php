@@ -6,22 +6,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Students extends Model
 {
-    public $timestamps = false;
-    
-    protected $fillable = [
-        'first_name',
-        'last_name',
-        'student_id',
-        'password'
-    ];
+    #use SoftDeletes;
+    protected $connection = 'pgsql';
+    protected $table = 'students';
+    protected $guarded = [];
 
-    protected $hidden = [
-        'password'
-    ];
-
-    // protected $casts = [
-    //      'easy_score' => 'array',
-    //      'medium_score'=> 'array',
-    //      'hard_score' => 'array'
-    // ];
+    public function info()
+    {
+        return $this->hasOne('App\User', 'id', 'student_users_id');
+    }
 }

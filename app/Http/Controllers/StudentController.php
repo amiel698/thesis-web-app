@@ -191,8 +191,8 @@ class StudentController extends Controller
         foreach($months as $index => $month){
             $data_test[$month] = $score[$index];
         }
-        dd($data_test);
-     
+
+
         $student = User::findOrFail($id);
         // $data2 = DB::table('student_records')->select(DB::raw('to_char(created_at, \'YYYY-MM\') as month'))->where('student_id', $id)->groupBy('difficulty','score', 'month')->having('difficulty', '=', 'easy')->pluck('score','month');
         $datas = StudentRecords::whereStudentId($id)->orderBy('month','ASC')->groupBy('difficulty','score','month' )->having('difficulty', '=', 'easy')->get(DB::raw('to_char(created_at, \'YYYY-MON\') as month'))->pluck('score', 'month');
@@ -202,8 +202,8 @@ class StudentController extends Controller
 
         //Easy
         $chart = new ChartTest;
-        $chart->labels($datas->keys());
-        $chart->dataset('Easy', 'line', $datas->values());
+        $chart->labels($data_test);
+        $chart->dataset('Easy', 'line', $data_test);
 
         //Medium
         $chart_medium = new ChartTest;

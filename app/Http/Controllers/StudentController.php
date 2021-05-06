@@ -191,7 +191,7 @@ class StudentController extends Controller
         $student = User::findOrFail($id);
         // $data2 = DB::table('student_records')->select(DB::raw('to_char(created_at, \'YYYY-MM\') as month'))->where('student_id', $id)->groupBy('difficulty','score', 'month')->having('difficulty', '=', 'easy')->pluck('score','month');
         $datas = StudentRecords::whereStudentId($id)->orderBy('month','ASC')->groupBy('difficulty','score','month' )->having('difficulty', '=', 'easy')->select(DB::raw('to_char(created_at, \'YYYY-MON\') as month'))->get('score', 'month');
-        dd($datas);
+        // dd($datas);
         $datas_medium = StudentRecords::whereStudentId($id)->orderBy('created_at','ASC')->groupBy('difficulty','score', 'created_at')->having('difficulty', '=', 'medium')->pluck('score', 'created_at');
 		$datas_hard = StudentRecords::whereStudentId($id)->orderBy('created_at','ASC')->groupBy('difficulty','score', 'created_at')->having('difficulty', '=', 'hard')->pluck('score', 'created_at');
 

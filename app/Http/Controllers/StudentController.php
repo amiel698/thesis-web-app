@@ -193,7 +193,7 @@ class StudentController extends Controller
         $months_medium = StudentRecords::whereStudentId($id)->orderBy('created_at','ASC')->groupBy('score','created_at','difficulty')->having('difficulty', '=', 'medium')->get(DB::raw('to_char(created_at, \'MON-DD-YYYY\') as month'))->pluck('month');
 
         $score_hard = StudentRecords::whereStudentId($id)->orderBy('created_at','ASC')->groupBy('score','created_at','difficulty')->having('difficulty', '=', 'hard')->pluck('score');
-        $months_hard = StudentRecords::whereStudentId($id)->orderBy('created_at','ASC')->groupBy('score','created_at','difficulty')->having('difficulty', '=', 'hard')->get(DB::raw('to_char(created_at, \MON-DD-YYYY\') as month'))->pluck('month');
+        $months_hard = StudentRecords::whereStudentId($id)->orderBy('created_at','ASC')->groupBy('score','created_at','difficulty')->having('difficulty', '=', 'hard')->get(DB::raw('to_char(created_at, \'MON-DD-YYYY\') as month'))->pluck('month');
 
         $student = User::findOrFail($id);
 

@@ -186,7 +186,7 @@ class StudentController extends Controller
 
     public function charts_test($id){
 
-        $score = StudentRecords::whereStudentId($id)->groupBy('score','created_at','difficulty')->having('difficulty', '=', 'easy')->pluck('score');
+        $score = StudentRecords::whereStudentId($id)->groupBy('score','created_at','difficulty')->having('difficulty', '=', 'easy')->pluck('score','created_at');
         dd($score);
         $student = User::findOrFail($id);
         // $data2 = DB::table('student_records')->select(DB::raw('to_char(created_at, \'YYYY-MM\') as month'))->where('student_id', $id)->groupBy('difficulty','score', 'month')->having('difficulty', '=', 'easy')->pluck('score','month');

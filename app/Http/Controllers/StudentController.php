@@ -202,7 +202,7 @@ class StudentController extends Controller
 
         //Easy
         $chart = new ChartTest;
-        $chart->labels($months->keys());
+        $chart->labels($months->values());
         $chart->dataset('Easy', 'line', $score->values());
 
         //Medium

@@ -8,6 +8,7 @@ use App\StudentRecords;
 use Illuminate\Support\Facades\DB;
 use ConsoleTVs\Charts\Classes\Chartjs\Chart;
 use App\Charts\ChartTest;
+use App\Charts\AdminChart;
 use App\Students;
 use Illuminate\Support\Arr;
 
@@ -224,7 +225,7 @@ class StudentController extends Controller
         $teacher = User::where('user_type', 2)->get()->count();
         $student = User::where('user_type', 1)->get()->count();
 
-        $chart_test = new ChartTest;
+        $chart_test = new AdminChart;
         $chart_test->labels(['Jan', 'Feb', 'Mar']);
         $chart_test->dataset('Users', 'doughnut', [$teacher->values(),$student->values()]);
 

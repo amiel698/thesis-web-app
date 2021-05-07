@@ -21,7 +21,7 @@ Route::post('authentication', 'AuthController@authentication')->name('authentica
 Route::post('authentication-api', 'AuthController@api_authentication')->name('authentication_api');
 Route::post('authentication-api-logout', 'AuthController@authentication_api_logout')->name('authentication_api_logout');
 Route::get('chart/{id}','StudentController@charts_test')->name('chart');
-Route::get('admin-dashboard','UserController@piechart');
+Route::get('admin-dashboard','UserController@index');
 
 
 

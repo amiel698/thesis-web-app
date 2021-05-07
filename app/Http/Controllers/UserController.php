@@ -18,7 +18,7 @@ class UserController extends Controller
         $chart_test->labels(['Jan', 'Feb', 'Mar']);
         $chart_test->dataset('Users', 'doughnut', [$teacher->values(), $student->values()]);
 
-        return view('home', compact('chart_test'));
+        return view('home')->with(['chart_test' => $chart_test]);
     }
 
 

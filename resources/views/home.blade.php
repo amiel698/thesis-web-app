@@ -11,20 +11,20 @@
 
                 <div class="card-body">
 
-                    @if (session('status'))
+                    {{--  @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
-                            {!! $chart_test->container() !!}
+
                         </div>
-                    @endif
+                    @endif  --}}
+
+                    {{ $chart_test->container() }}
                 </div>
             </div>
         </div>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
-<script>
-    {{ $chart_test->script() }}
-</script>
+{{ $chart_test->script() }}
 @endsection
 

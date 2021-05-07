@@ -17,16 +17,12 @@
                     <div class="w-1/2">
                         {!! $chart_hard->container() !!}
                     </div>
-                    <div class="w-1/2">
-                        {!! $chart_test->container() !!}
-                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
-{!! $chart_test->script() !!}
 {!! $chart->script() !!}
 {!! $chart_medium->script() !!}
 {!! $chart_hard->script() !!}

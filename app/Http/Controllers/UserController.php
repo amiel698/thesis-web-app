@@ -13,11 +13,11 @@ class UserController extends Controller
         $teacher = User::where('user_type', 2)->get()->count();
         $student = User::where('user_type', 1)->get()->count();
 
-        $chart = new ChartTest;
-        $chart->labels(['Jan', 'Feb', 'Mar']);
-        $chart->dataset('Users by trimester', 'doughnut', [$teacher->values(),$student->values()]);
+        $chart_test = new ChartTest;
+        $chart_test->labels(['Jan', 'Feb', 'Mar']);
+        $chart_test->dataset('Users by trimester', 'doughnut', [$teacher->values(),$student->values()]);
 
-        return view('home',compact('chart'));
+        return view('home',compact('chart_test'));
     }
 
 

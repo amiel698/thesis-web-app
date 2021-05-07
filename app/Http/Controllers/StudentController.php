@@ -226,7 +226,6 @@ class StudentController extends Controller
         $student = User::where('user_type', 1)->get()->count();
 
         $chart_test = new AdminChart;
-        $chart_test->labels(['Jan', 'Feb', 'Mar']);
         $chart_test->dataset('Users', 'doughnut', [$teacher->values(),$student->values()]);
 
         return view('home', compact('chart_test'));

@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Charts\AdminChart;
+use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+
 
 class HomeController extends Controller
 {
@@ -21,8 +25,15 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function index()
-    {
-        return view('home');
-    }
+
+        public function index(){
+            $teacher = User::where('user_type', 2)->get(DB::raw('COUNT(*) as count'))->pluck('count');
+            $student = User::where('user_type', 1)->get(DB::raw('COUNT(*) as count'))->pluck('count');
+
+            $chart_test = new AdminChart();
+            $chart_test->labels([]);
+            $chart_test->dataset('Users', 'doughnut', [$teacher->values(), $student->values()]);
+
+            return view('home', ['chart_test' => $chart_test]);
+        }
 }

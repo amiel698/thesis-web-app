@@ -20,7 +20,7 @@ class UserController extends Controller
 
         $chart_test = new AdminChart;
         $chart_test->labels(['Jan', 'Feb', 'Mar']);
-        $chart_test->dataset('Users', 'doughnut', $teacher->values());
+        $chart_test->dataset('Users', 'doughnut', $teacher);
 
         return view('home')->with(['chart_test' => $chart_test]);
     }

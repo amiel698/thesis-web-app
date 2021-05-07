@@ -208,7 +208,7 @@ class StudentController extends Controller
         //Medium
         $chart_medium = new ChartTest;
         $chart_medium->labels($months_medium->values());
-        $chart_medium->dataset('Medium', 'line', $score_medium->values());
+        $chart_medium->dataset('Medium', 'line', $score_medium->values())->color('blue');
 
 		//Hard
 		$chart_hard = new ChartTest;
@@ -217,7 +217,7 @@ class StudentController extends Controller
 
 
 
-        return view('student.chart', compact('chart','chart_medium','chart_hard','student'));
+        return view('student.chart', compact('chart','chart_medium','chart_hard','student'))->color('green');
 
 
 

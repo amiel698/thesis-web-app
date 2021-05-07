@@ -10,8 +10,12 @@ use Illuminate\Support\Facades\DB;
 class UserController extends Controller
 {
     public function index(){
-        $teacher = User::where('user_type', 2)->get()->count();
-        $student = User::where('user_type', 1)->get()->count();
+        $teacher = User::select(DB::raw("COUNT(*) as count"))
+        ->where('user_type', 2)
+        ->pluck('count');
+        $student = User::select(DB::raw("COUNT(*) as count"))
+        ->where('user_type', 2)
+        ->pluck('count');
 
         $chart_test = new ChartTest;
         $chart_test->labels(['Jan', 'Feb', 'Mar']);

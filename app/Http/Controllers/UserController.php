@@ -12,7 +12,12 @@ class UserController extends Controller
     public function index(){
         $teacher = User::where('user_type', 2)->get()->count();
         $student = User::where('user_type', 1)->get()->count();
-        dd($student);
+
+        $chart = new ChartTest;
+        $chart->labels(['Jan', 'Feb', 'Mar']);
+        $chart->dataset('Users by trimester', 'doughnut', [$teacher->values(),$student->values()]);
+
+        return view('home',compact('chart'));
     }
 
 

@@ -11,7 +11,7 @@ class UserController extends Controller
 {
     public function index(){
         $teacher = User::where('user_type', 2)->get()->count();
-        
+        dd($teacher);
     }
 
 

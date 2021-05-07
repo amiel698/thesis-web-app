@@ -36,8 +36,7 @@ class HomeController extends Controller
             // $chart_test->minimalist(true);
             $chart_test->displayLegend(true);
             $chart_test->labels(['Teacher', 'Student']);
-            $chart_test->barWidth(6);
-            $chart_test->dataset('Users', 'bar', [$teacher->values(), $student->values()])->color(['red', 'blue'])->backgroundcolor(['red', 'blue']);
+            $chart_test->dataset('Users','pie', [$teacher->values(), $student->values()])->color(['red', 'blue'])->backgroundcolor(['red', 'blue']);
 
             return view('home', ['chart_test' => $chart_test]);
         }

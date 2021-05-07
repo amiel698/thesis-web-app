@@ -220,16 +220,4 @@ class StudentController extends Controller
 
         return view('student.chart', compact('chart','chart_medium','chart_hard','student'));
     }
-
-    public function piechart(){
-        $teacher = User::where('user_type', 2)->get()->count();
-        $student = User::where('user_type', 1)->get()->count();
-
-        $chart_test = new AdminChart;
-        $chart_test->dataset('Users', 'doughnut', [$teacher->values(),$student->values()]);
-
-        return view('home', compact('chart_test'));
-    }
-
-
 }

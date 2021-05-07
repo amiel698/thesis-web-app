@@ -34,6 +34,7 @@ class HomeController extends Controller
 
             $chart_test = new AdminChart();
             $chart_test->minimalist(true);
+            $chart_test->displayLegend(true);
             $chart_test->labels(['Student', 'Teacher']);
             $chart_test->dataset('Users', 'doughnut', [$teacher->values(), $student->values()])->color(['red', 'blue'])->backgroundcolor(['red', 'blue']);
 

@@ -213,11 +213,11 @@ class StudentController extends Controller
 		//Hard
 		$chart_hard = new ChartTest;
 		$chart_hard->labels($months_hard->values());
-		$chart_hard->dataset('Hard', 'line', $score_hard->values());
+		$chart_hard->dataset('Hard', 'line', $score_hard->values())->color('green');
 
 
 
-        return view('student.chart', compact('chart','chart_medium','chart_hard','student'))->color('green');
+        return view('student.chart', compact('chart','chart_medium','chart_hard','student'));
 
 
 

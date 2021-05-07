@@ -14,7 +14,6 @@
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
-
                         </div>
                     @endif
 
@@ -24,7 +23,6 @@
         </div>
     </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js" charset="utf-8"></script>
-{{ $chart_test->script() }}
+
 @endsection
 

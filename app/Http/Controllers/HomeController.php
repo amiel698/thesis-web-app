@@ -31,8 +31,9 @@ class HomeController extends Controller
             $student = User::where('user_type', 1)->get(DB::raw('COUNT(*) as count'))->pluck('count');
 
             $chart_test = new AdminChart();
-            $chart_test->labels([]);
-            $chart_test->dataset('Users', 'doughnut', [$teacher->values(), $student->values()]);
+            $chart_test->labels(['Student', 'Teacher']);
+            $chart_test->dataset('Users', 'doughnut', $teacher->values())->color('red');
+            $chart_test->dataset('Users', 'doughnut', $student->values())->color('blue');
 
             return view('home', ['chart_test' => $chart_test]);
         }

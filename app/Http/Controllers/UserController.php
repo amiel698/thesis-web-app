@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
-use app\Charts\ChartTest;
+use App\Charts\ChartTest;
 use Illuminate\Support\Facades\DB;
 
 class UserController extends Controller

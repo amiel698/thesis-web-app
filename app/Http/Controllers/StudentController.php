@@ -201,7 +201,7 @@ class StudentController extends Controller
         //Easy
         $chart = new ChartTest;
         $chart->labels($months->values());
-        $chart->dataset('Easy', 'line', $score->values())->backgroundcolor('red');
+        $chart->dataset('Easy', 'line', $score->values())->color('red');
 
 
 

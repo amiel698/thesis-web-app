@@ -57,7 +57,7 @@ class AuthController extends Controller
             if($user == 0){
                 return redirect()->route('home');
             } else if ($user == 2){
-                return redirect()->route('home/teacher-dash');
+                return redirect()->route('home.teacher-dash');
             }
 
 		}

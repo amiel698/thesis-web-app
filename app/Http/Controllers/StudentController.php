@@ -187,7 +187,7 @@ class StudentController extends Controller
 
     public function charts_test($id){
 
-        $score_total = StudentRecords::whereStudentId($id)->select(DB::raw("MONTH(created_at) as month"))->where('month' ,'=', '02')->pluck('score');
+        $score_total = StudentRecords::whereStudentId($id)->select(DB::raw("DATE_TRUNC(month, created_at) as month"))->where('month' ,'=', '02')->pluck('score');
         dd($score_total);
         $score = StudentRecords::whereStudentId($id)->orderBy('created_at','ASC')->groupBy('score','created_at','difficulty')->having('difficulty', '=', 'easy')->pluck('score');
         $months = StudentRecords::whereStudentId($id)->orderBy('created_at','ASC')->groupBy('score','created_at','difficulty')->having('difficulty', '=', 'easy')->get(DB::raw('to_char(created_at, \'MON-DD-YYYY\') as month'))->pluck('month');

@@ -131,10 +131,10 @@ class TeacherController extends Controller
 		$rows = $query->orderBy('created_at', 'ASC')->paginate(50);
 
 
-        view()->composer(['teacher.show', 'home'], function($view)){
+        view()->composer(['teacher.show', 'home'], function($view){
             $data = compact('rows', 'teacher', 'search');
             view()->with('data', $data);
-        }
+        });
 
 		// return view('teacher.show', $data);
 	}

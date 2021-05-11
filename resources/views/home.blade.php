@@ -22,6 +22,21 @@
                         </div>
                     @endif
                     @if(Auth::user()->user_type == 1)
+
+                    <div class="row ">
+                        <div class="col-md-7"></div>
+                        <div class="col-md-5">
+                            <form action="{{ route('student.index') }}" method="get" enctype="multipart/form-data">
+                                <div class="input-group mb-3">
+                                    @if(Auth::user()->user_type == 0)
+                                    <a class="btn btn-outline-primary" href="{{ route('teacher.create_student') }}"><i class="fa fa-plus"></i></a>
+                                    @endif
+                                    <input type="text" class="form-control" placeholder="Search a Name" aria-label="Search a Name" aria-describedby="button-addon2" id="search" name="search" value="{{ $search }}" autofocus="">
+                                    <button class="btn btn-outline-secondary" type="submit" id="button-addon2"><i class="fa fa-search"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -36,11 +51,11 @@
                                 {{--  <td>{{ $record->grading }}</td>  --}}
                                 <td>{{ $row->info->first_name }}</td>
                                 <td>{{ $row->info->last_name }}</td>
-
                             </tr>
                             @endforeach
                         </tbody>
                     </table>
+                    {{ $rows->appends(['search' => $search])->links() }}
                     @endif
                 </div>
             </div>

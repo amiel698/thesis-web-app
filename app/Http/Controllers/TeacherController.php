@@ -135,7 +135,7 @@ class TeacherController extends Controller
             $data = compact('rows', 'teacher', 'search');
 
 
-		return view('teacher.show', $data);
+		    return view('teacher.show', $data);
 	}
 
 	public function delete($id)

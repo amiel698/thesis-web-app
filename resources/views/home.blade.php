@@ -31,11 +31,11 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach($students as $student)
+                            @foreach($data as $datas)
                             <tr>
                                 {{--  <td>{{ $record->grading }}</td>  --}}
-                                <td>{{ $student->first_name }}</td>
-                                <td>{{ $student->last_name }}</td>
+                                <td>{{ $datas->first_name }}</td>
+                                <td>{{ $datas->last_name }}</td>
 
                             </tr>
                             @endforeach

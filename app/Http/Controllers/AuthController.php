@@ -47,12 +47,21 @@ class AuthController extends Controller
 
 
 
-	public function authentication(Request $request)
+
+    public function authentication(Request $request)
 	{
 		$authentication = Auth::attempt($request->only(['email', 'password']));
 		if ($authentication) {
-			return redirect()->route('home');
-		} else {
+
+            $user = Auth::user()->user_type;
+            if($user == 0){
+                return redirect()->route('home');
+            } else if ($user == 2){
+                return redirect()->route('home/teacher-dash');
+            }
+
+		}
+         else {
 			return redirect()->route('login')->with('auth_msg', 'Invalid Username and Password!');
 		}
 	}

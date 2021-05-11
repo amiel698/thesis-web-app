@@ -72,7 +72,7 @@ class HomeController extends Controller
             $data = compact('rows', 'teacher', 'search');
 
 
-            return view('home', $data);
+            return view('home', ['data' => $data]);
         }
 
 

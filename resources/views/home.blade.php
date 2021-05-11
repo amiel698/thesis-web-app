@@ -34,8 +34,8 @@
                             @foreach($data as $datas)
                             <tr>
                                 {{--  <td>{{ $record->grading }}</td>  --}}
-                                <td>{{ $datas->first_name }}</td>
-                                <td>{{ $datas->last_name }}</td>
+                                <td>{{ $datas->info->first_name }}</td>
+                                <td>{{ $datas->info->last_name }}</td>
 
                             </tr>
                             @endforeach

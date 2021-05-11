@@ -23,7 +23,6 @@
                     @endif
 
                     @if(Auth::user()->user_type == 1)
-
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -35,8 +34,8 @@
                         <tbody>
                             @foreach($rows as $row)
                             <tr>
-                                <td>{{ $row->info->first_name }}</td>
-                                <td>{{ $row->info->last_name }}</td>
+                                <td>{{ $row->first_name }}</td>
+                                <td>{{ $row->last_name }}</td>
                             </tr>
                             @endforeach
                         </tbody>

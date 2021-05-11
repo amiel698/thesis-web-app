@@ -30,6 +30,8 @@ Route::middleware('auth')->group(function(){
 
 	Route::get('home', 'HomeController@index')->name('home');
 
+    Route::get('home/teacher-dash', 'HomeController@show')->name('home');
+
 	Route::resource('words', 'WordsController');
     Route::get('words/delete/{id}', 'WordsController@remove')->name('words.delete');
 

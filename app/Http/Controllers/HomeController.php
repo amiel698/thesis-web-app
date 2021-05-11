@@ -6,7 +6,9 @@ use App\Charts\AdminChart;
 use App\User;
 use App\Students;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+
 
 
 class HomeController extends Controller
@@ -42,9 +44,10 @@ class HomeController extends Controller
             return view('home', ['chart_test' => $chart_test]);
         }
 
-        public function show($id)
+        public function show()
         {
             $search = '';
+            $id = Auth::user()->id;
             $teacher = User::find($id);
             if (is_null($teacher)) {
                 abort(404);
@@ -58,7 +61,7 @@ class HomeController extends Controller
                 $query = $query->whereTeacherUsersId($teacher->id);
             }*/
 
-        
+
 
 
             $rows = $query->orderBy('created_at', 'ASC')->paginate(50);

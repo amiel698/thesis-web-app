@@ -17,7 +17,9 @@
                         </div>
                     @endif
                     @if(Auth::user()->user_type == 0)
-                        {{ $chart_test->container() }}
+                        <div class="container">
+                            {{ $chart_test->container() }}
+                        </div>
                     @endif
                 </div>
             </div>

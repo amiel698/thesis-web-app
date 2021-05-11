@@ -21,6 +21,27 @@
                             {{ $chart_test->container() }}
                         </div>
                     @endif
+                    @if(Auth::user()->user_type == 1)
+                    <table class="table table-striped">
+                        <thead>
+                            <tr>
+                                {{--  <th width="20%">Grading</th>  --}}
+                                <th width="20%">First Name</th>
+                                <th width="20%">Last Name</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach($students as $student)
+                            <tr>
+                                {{--  <td>{{ $record->grading }}</td>  --}}
+                                <td>{{ $student->first_name }}</td>
+                                <td>{{ $student->last_name }}</td>
+
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                    @endif
                 </div>
             </div>
         </div>

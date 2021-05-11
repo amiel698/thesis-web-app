@@ -40,4 +40,6 @@ class HomeController extends Controller
 
             return view('home', ['chart_test' => $chart_test]);
         }
+
+        
 }

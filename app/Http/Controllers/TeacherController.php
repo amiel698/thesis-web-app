@@ -133,6 +133,7 @@ class TeacherController extends Controller
 
 
 		$data = compact('rows', 'teacher', 'search');
+        view()->share('students', 'data');
 		return view('teacher.show', $data);
 	}
 

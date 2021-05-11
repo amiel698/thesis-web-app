@@ -133,7 +133,7 @@ class TeacherController extends Controller
 
         view()->composer(['teacher.show', 'home'], function($view){
             $data = compact('rows', 'teacher', 'search');
-            view()->with('data', $data);
+            $view->with('data', $data);
         });
 
 		// return view('teacher.show', $data);

@@ -21,8 +21,8 @@
                             {{ $chart_test->container() }}
                         </div>
                     @endif
-                    @if(Auth::user()->user_type == 1)
 
+                    @if(Auth::user()->user_type == 1)
                     <div class="row ">
                         <div class="col-md-7"></div>
                         <div class="col-md-5">
@@ -48,7 +48,7 @@
                         <tbody>
                             @foreach($rows as $row)
                             <tr>
-                                {{--  <td>{{ $record->grading }}</td>  --}}
+                            
                                 <td>{{ $row->info->first_name }}</td>
                                 <td>{{ $row->info->last_name }}</td>
                             </tr>

@@ -69,10 +69,10 @@ class HomeController extends Controller
             $rows = $query->orderBy('created_at', 'ASC')->paginate(50);
 
 
-            $data = compact('rows', 'teacher', 'search');
 
 
-            return view('home', ['data' => $data]);
+
+            return view('home', ['rows' => $rows]);
         }
 
 

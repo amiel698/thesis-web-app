@@ -42,7 +42,7 @@ class HomeController extends Controller
             return view('home', ['chart_test' => $chart_test]);
         }
 
-        public function show($id, Request $request)
+        public function show($id)
         {
             $search = '';
             $teacher = User::find($id);
@@ -58,12 +58,7 @@ class HomeController extends Controller
                 $query = $query->whereTeacherUsersId($teacher->id);
             }*/
 
-            if($request->has('search') && $request->search != '') {
-                $search = trim($request->search);
-                $query = $query->where(function($query) use ($search) {
-                    $query->where('first_name', 'LIKE', "%$search%")->orWhere('last_name', 'LIKE', "%$search%");
-                });
-            }
+        
 
 
             $rows = $query->orderBy('created_at', 'ASC')->paginate(50);
@@ -72,7 +67,7 @@ class HomeController extends Controller
 
 
 
-            return view('home', ['rows' => $rows]);
+            return view('home', compact('rows'));
         }
 
 

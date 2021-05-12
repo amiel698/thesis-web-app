@@ -52,18 +52,7 @@ class HomeController extends Controller
             if (is_null($teacher)) {
                 abort(404);
             }
-            #dd(Auth::user()->id);
             $query = Students::with(['info'])->whereTeacherUsersId($teacher->id);
-
-            /*if (Auth::user()->user_type != 0) {
-                $query = $query->whereTeacherUsersId(Auth::user()->id);
-            } else {
-                $query = $query->whereTeacherUsersId($teacher->id);
-            }*/
-
-
-
-
             $rows = $query->orderBy('created_at', 'ASC')->paginate(50);
 
 

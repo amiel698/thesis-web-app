@@ -38,6 +38,7 @@
                                 <td>{{ $row->info->last_name }}</td>
                                 <td>{{ $row->info->score }}</td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                     @endif

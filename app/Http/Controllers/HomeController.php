@@ -36,7 +36,7 @@ class HomeController extends Controller
             $student = User::where('user_type', 1)->get(DB::raw('COUNT(*) as count'))->pluck('count');
 
             $chart_test = new AdminChart();
-            // $chart_test->minimalist(true);
+            $chart_test->minimalist(true);
             $chart_test->displayLegend(true);
             $chart_test->labels(['Teacher', 'Student']);
             $chart_test->dataset('Users','pie', [$teacher->values(), $student->values()])->color(['red', 'blue'])->backgroundcolor(['red', 'blue']);
@@ -55,6 +55,7 @@ class HomeController extends Controller
             $query = Students::with(['info'])->whereTeacherUsersId($teacher->id);
             $rows = $query->orderBy('created_at', 'ASC')->paginate(50);
 
+            
 
 
 

@@ -54,8 +54,9 @@ class HomeController extends Controller
             }
             $query = Students::with(['info'])->whereTeacherUsersId($teacher->id);
             $rows = $query->orderBy('created_at', 'ASC')->paginate(50);
-
             
+            $score = Students::with(['info'])->whereTeacherUsersId($teacher->id)->having('difficulty', '=' , 'easy')->pluck('score');
+            dd($score);
 
 
 

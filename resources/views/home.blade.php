@@ -26,9 +26,10 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                {{--  <th width="20%">Grading</th>  --}}
+                                
                                 <th width="20%">First Name</th>
                                 <th width="20%">Last Name</th>
+                                <th width="20%">Score</th>
                             </tr>
                         </thead>
                         <tbody>

@@ -54,8 +54,7 @@ class HomeController extends Controller
                 abort(404);
             }
             
-            $query = Students::with('info', 'scoreRelation')->whereTeacherUsersId($teacher->id)->get();
-            dd($query);
+            $query = Students::with('info', 'scoreRelation')->whereTeacherUsersId($teacher->id);
             $rows = $query->orderBy('created_at', 'ASC')->paginate(50);
             
             return view('home', compact('rows'));

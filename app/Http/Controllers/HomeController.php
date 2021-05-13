@@ -55,7 +55,7 @@ class HomeController extends Controller
             }
             $query = Students::with(['info'])->whereTeacherUsersId($teacher->id);
             $stud_id = Students::with(['score'])->whereTeacherUsersId($teacher->id)->pluck('score');
-            
+            dd($stud_id);
           
            
             

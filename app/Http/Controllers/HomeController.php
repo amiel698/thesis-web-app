@@ -56,7 +56,7 @@ class HomeController extends Controller
             
             $query = Students::with('info')->whereTeacherUsersId($teacher->id);
 
-            $query_id = Students::with('info')->whereTeacherUsersId($teacher->id)->pluck('student_users_id');
+            $query_id = Students::with('info')->whereTeacherUsersId($teacher->id)->pluck('student_users_id')->first();
             $query_score = Students::with('studentRelation')->where('student_id',$query_id)->pluck('score');
             dd($query_score);
             $rows = $query->orderBy('created_at', 'ASC')->paginate(50);

@@ -54,7 +54,7 @@ class HomeController extends Controller
                 abort(404);
             }
             
-            $query = Students::with(['info', 'score'])->whereTeacherUsersId($teacher->id);
+            $query = Students::with(['info', 'scoreRelation'])->whereTeacherUsersId($teacher->id);
             
             
             

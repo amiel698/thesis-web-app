@@ -16,13 +16,13 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    @if(Auth::user()->user_type == 0)
+                    
                         <div class="container">
                             {{ $chart_test->container() }}
                         </div>
-                    @endif
+                   
 
-                    @if(Auth::user()->user_type == 2)
+                    {{-- @if(Auth::user()->user_type == 2)
                     <table class="table table-striped">
                         <thead>
                             <tr>
@@ -42,7 +42,7 @@
                             @endforeach
                         </tbody>
                     </table>
-                    @endif
+                    @endif --}}
                 </div>
             </div>
         </div>

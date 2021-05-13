@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Charts\AdminChart;
 use App\User;
 use App\Students;
+use App\StudentRecords;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;

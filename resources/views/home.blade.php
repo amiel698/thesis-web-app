@@ -37,6 +37,7 @@
                             <tr>
                                 <td>{{ $row->info->first_name }}</td>
                                 <td>{{ $row->info->last_name }}</td>
+                                
                             </tr>
                             @endforeach
                         </tbody>

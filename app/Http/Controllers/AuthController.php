@@ -53,12 +53,8 @@ class AuthController extends Controller
 		$authentication = Auth::attempt($request->only(['email', 'password']));
 		if ($authentication) {
 
-            $user = Auth::user()->user_type;
-            if($user == 0 || $user == 1){
                 return redirect()->route('home');
-            } else if ($user == 2){
-                return redirect()->route('home.teacher-dash');
-            }
+            
 
 		}
          else {

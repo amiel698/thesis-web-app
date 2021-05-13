@@ -40,7 +40,6 @@
                                 @foreach($score as $scores)
                                 <td>{{ $scores }}</td>
                                 @endforeach
-                                
                             </tr>
                             @endforeach
                         </tbody>

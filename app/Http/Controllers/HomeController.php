@@ -57,10 +57,8 @@ class HomeController extends Controller
             $stud_id = Students::with(['info'])->whereTeacherUsersId($teacher->id)->pluck('student_users_id');
             foreach($stud_id as $ids){
             $score = StudentRecords::where('student_id', $ids)->pluck('score')->average();
-            dd($score);
             }
-            
-            
+        
             $rows = $query->orderBy('created_at', 'ASC')->paginate(50);
             
            
@@ -68,7 +66,7 @@ class HomeController extends Controller
 
 
 
-            return view('home', compact('rows'));
+            return view('home', compact('rows','score'));
         }
 
 

@@ -16,8 +16,8 @@ class Students extends Model
         return $this->hasOne('App\User', 'id', 'student_users_id');
     }
 
-    public function score()
+    public function scoreRelation()
     {
-        return $this->hasOne('App\StudentRecords', 'student_id', 'student_users_id');
+        return $this->hasMany('App\StudentRecords', 'student_id', 'student_users_id');
     }
 }

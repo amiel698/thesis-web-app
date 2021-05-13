@@ -54,8 +54,8 @@ class HomeController extends Controller
                 abort(404);
             }
             $query = Students::with(['info'])->whereTeacherUsersId($teacher->id);
-            dd($query);
             $stud_id = Students::with(['score'])->whereTeacherUsersId($teacher->id);
+            
             
           
            
@@ -67,7 +67,7 @@ class HomeController extends Controller
 
 
 
-            return view('home', compact('rows','score'));
+            return view('home', compact('rows','stud_id'));
         }
 
 

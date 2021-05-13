@@ -37,8 +37,8 @@
                             <tr>
                                 <td>{{ $row->info->first_name }}</td>
                                 <td>{{ $row->info->last_name }}</td>
-                                @foreach($score as $scores)
-                                <td>{{ $scores }}</td>
+                                @foreach($stud_id as $scores)
+                                <td>{{ $scores->score->score }}</td>
                                 @endforeach
                             </tr>
                             @endforeach

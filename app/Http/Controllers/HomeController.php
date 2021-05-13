@@ -45,20 +45,20 @@ class HomeController extends Controller
             return view('home', ['chart_test' => $chart_test]);
         }
 
-        public function show()
-        {
-            $search = '';
-            $id = Auth::user()->id;
-            $teacher = User::find($id);
-            if (is_null($teacher)) {
-                abort(404);
-            }
+        // public function show()
+        // {
+        //     $search = '';
+        //     $id = Auth::user()->id;
+        //     $teacher = User::find($id);
+        //     if (is_null($teacher)) {
+        //         abort(404);
+        //     }
             
-            $query = Students::with('info')->whereTeacherUsersId($teacher->id);
-            $rows = $query->orderBy('created_at', 'ASC')->paginate(50);
+        //     $query = Students::with('info')->whereTeacherUsersId($teacher->id);
+        //     $rows = $query->orderBy('created_at', 'ASC')->paginate(50);
             
-            return view('home', compact('rows'));
-        }
+        //     return view('home', compact('rows'));
+        // }
 
 
 }

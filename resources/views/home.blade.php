@@ -37,7 +37,10 @@
                             <tr>
                                 <td>{{ $row->info->first_name }}</td>
                                 <td>{{ $row->info->last_name }}</td>
-                                <td>{{ $score }}</td>
+                                @foreach ($score as scores )
+                                <td>{{ $scores }}</td>
+                                @endforeach
+                                
                             </tr>
                             @endforeach
                         </tbody>

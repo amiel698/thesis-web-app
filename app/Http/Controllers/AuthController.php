@@ -52,10 +52,7 @@ class AuthController extends Controller
 	{
 		$authentication = Auth::attempt($request->only(['email', 'password']));
 		if ($authentication) {
-
-                return redirect()->route('home');
-            
-
+            return redirect()->route('home');
 		}
          else {
 			return redirect()->route('login')->with('auth_msg', 'Invalid Username and Password!');

@@ -20,7 +20,7 @@ class WordsController extends Controller
 			$search = trim($request->search);
 			$query = $query->where('name', 'LIKE', "%$search%");
 		}
-		$rows = $query->orderBy('created_at', 'ASC')->paginate(20);
+		$rows = $query->orderBy('created_at', 'ASC')->paginate(50);
 		$data = compact('rows', 'search');
 		return view('words.index', $data);
 	}

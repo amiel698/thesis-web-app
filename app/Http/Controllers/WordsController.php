@@ -175,6 +175,6 @@ class WordsController extends Controller
         Storage::delete($path);
         $word->forceDelete();
 
-        return redirect()->route('words.index')->with('success_msg', 'Word Deleted!!');
+        return redirect()->back()->with('success_msg', 'Word Deleted!!');
     }
 }

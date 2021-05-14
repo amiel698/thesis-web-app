@@ -20,7 +20,7 @@ Route::post('store', 'AuthController@store')->name('store');
 Route::post('authentication', 'AuthController@authentication')->name('authentication');
 Route::post('authentication-api', 'AuthController@api_authentication')->name('authentication_api');
 Route::post('authentication-api-logout', 'AuthController@authentication_api_logout')->name('authentication_api_logout');
-Route::get('chart/{id}','StudentController@charts_test')->name('chart');
+
 
 
 
@@ -34,6 +34,9 @@ Route::middleware('auth')->group(function(){
 
 	Route::resource('words', 'WordsController');
     Route::get('words/delete/{id}', 'WordsController@remove')->name('words.delete');
+
+	Route::get('chart/{id}','StudentController@charts_test')->name('chart');
+
 
 	Route::get('teacher/remove/{id}', 'TeacherController@delete')->name('teacher.remove.student');
 	Route::get('teacher/assign-student', 'TeacherController@create_student')->name('teacher.create_student');

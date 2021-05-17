@@ -18,7 +18,7 @@ Route::get('/', 'AuthController@login')->name('login');
 Route::get('register', 'AuthController@register')->name('register');
 Route::post('store', 'AuthController@store')->name('store');
 Route::post('authentication', 'AuthController@authentication')->name('authentication');
-Route::post('authentication-api', 'AuthController@api_authentication')->name('authentication_api');
+Route::post('authentication-api', 'Authontroller@api_authentication')->name('authentication_api');
 Route::post('authentication-api-logout', 'AuthController@authentication_api_logout')->name('authentication_api_logout');
 
 
